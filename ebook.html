@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panduan Trading IQ Option untuk Pemula — TraderLokal.com</title>
+  <meta name="robots" content="noindex, nofollow"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #0c0f14;
+      --bg2: #111520;
+      --amber: #f5a623;
+      --amber2: #e8921a;
+      --green: #2ecc71;
+      --red: #e74c3c;
+      --blue: #3498db;
+      --text: #e8e6e0;
+      --muted: #7a7f8e;
+      --border: rgba(245,166,35,0.15);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Lora', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    /* COVER */
+    .cover {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0c0f14 0%, #141a2e 50%, #0c0f14 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -200px; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(245,166,35,0.08) 0%, transparent 65%);
+    }
+    .cover-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--amber);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      padding: 6px 16px;
+      border-radius: 99px;
+      margin-bottom: 32px;
+      position: relative;
+    }
+    .cover h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(32px, 6vw, 64px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.1;
+      max-width: 700px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .cover h1 em { color: var(--amber); font-style: normal; }
+    .cover-sub {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 480px;
+      margin-bottom: 48px;
+      position: relative;
+    }
+    .cover-chapters {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      position: relative;
+      margin-bottom: 48px;
+    }
+    .cover-chapter {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 6px 14px;
+      border-radius: 99px;
+    }
+    .cover-by {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+      position: relative;
+    }
+    .cover-by a { color: var(--amber); text-decoration: none; }
+
+    /* RISK WARNING */
+    .risk-bar {
+      background: rgba(231,76,60,0.08);
+      border-bottom: 1px solid rgba(231,76,60,0.2);
+      padding: 14px 24px;
+      text-align: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: #c0392b;
+      font-weight: 500;
+    }
+
+    /* NAV */
+    .ebook-nav {
+      position: sticky;
+      top: 0;
+      background: rgba(12,15,20,0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 100;
+    }
+    .ebook-nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 16px;
+      color: var(--text);
+    }
+    .ebook-nav-logo em { color: var(--amber); font-style: normal; }
+    .btn-print {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--amber);
+      background: rgba(245,166,35,0.08);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-print:hover { background: rgba(245,166,35,0.15); }
+
+    /* LAYOUT */
+    .ebook-body { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+
+    /* CHAPTER */
+    .chapter {
+      padding: 72px 0 56px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .chapter-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--amber);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .chapter-num::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--amber);
+    }
+    .chapter h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(26px, 4vw, 40px);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .chapter-intro {
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 40px;
+      max-width: 620px;
+    }
+    .chapter p { margin-bottom: 20px; color: var(--text); }
+    .chapter h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin: 40px 0 16px;
+    }
+    .chapter h4 {
+      font-family: 'Syne', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--amber);
+      margin: 28px 0 12px;
+    }
+
+    /* STEP LIST */
+    .steps { counter-reset: step; display: flex; flex-direction: column; gap: 16px; margin: 28px 0; }
+    .step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 20px;
+      transition: border-color 0.2s;
+    }
+    .step:hover { border-color: var(--border); }
+    .step-num-circle {
+      flex-shrink: 0;
+      width: 32px; height: 32px;
+      background: rgba(245,166,35,0.1);
+      border: 1px solid rgba(245,166,35,0.25);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--amber);
+    }
+    .step-content h5 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .step-content p { font-size: 15px; color: var(--muted); margin: 0; }
+
+    /* INFO BOX */
+    .info-box {
+      border-radius: 12px;
+      padding: 24px;
+      margin: 28px 0;
+    }
+    .info-box.tip {
+      background: rgba(52,152,219,0.06);
+      border: 1px solid rgba(52,152,219,0.2);
+    }
+    .info-box.warning {
+      background: rgba(231,76,60,0.06);
+      border: 1px solid rgba(231,76,60,0.2);
+    }
+    .info-box.success {
+      background: rgba(46,204,113,0.06);
+      border: 1px solid rgba(46,204,113,0.2);
+    }
+    .info-box.amber {
+      background: rgba(245,166,35,0.06);
+      border: 1px solid rgba(245,166,35,0.2);
+    }
+    .info-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+    }
+    .info-box.tip .info-label { color: var(--blue); }
+    .info-box.warning .info-label { color: var(--red); }
+    .info-box.success .info-label { color: var(--green); }
+    .info-box.amber .info-label { color: var(--amber); }
+    .info-box p { font-size: 15px; color: var(--text); margin: 0; line-height: 1.7; }
+
+    /* TABLE */
+    .table-wrap { overflow-x: auto; margin: 28px 0; }
+    table { width: 100%; border-collapse: collapse; }
+    th {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      text-align: left;
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    td {
+      padding: 14px 16px;
+      font-size: 15px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      color: var(--text);
+    }
+    tr:hover td { background: rgba(255,255,255,0.02); }
+    td.green { color: var(--green); font-family: 'DM Mono', monospace; }
+    td.red { color: var(--red); font-family: 'DM Mono', monospace; }
+    td.amber { color: var(--amber); font-family: 'DM Mono', monospace; }
+
+    /* CHART VISUAL */
+    .chart-visual {
+      background: #080b10;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 28px;
+      margin: 28px 0;
+      font-family: 'DM Mono', monospace;
+    }
+    .chart-title {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 20px;
+    }
+    .candle-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 6px;
+      height: 120px;
+      margin-bottom: 12px;
+    }
+    .candle {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+      position: relative;
+      height: 100%;
+      justify-content: flex-end;
+    }
+    .candle-body { width: 70%; border-radius: 2px; }
+    .candle.bull .candle-body { background: var(--green); }
+    .candle.bear .candle-body { background: var(--red); }
+    .chart-label {
+      font-size: 10px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 8px;
+    }
+    .sr-line {
+      border-top: 1px dashed rgba(245,166,35,0.5);
+      padding-top: 8px;
+      font-size: 11px;
+      color: var(--amber);
+      margin: 4px 0;
+    }
+
+    /* CALLOUT */
+    .callout {
+      border-left: 3px solid var(--amber);
+      padding: 16px 20px;
+      margin: 28px 0;
+      background: rgba(245,166,35,0.04);
+      border-radius: 0 8px 8px 0;
+    }
+    .callout p { font-style: italic; color: var(--text); font-size: 16px; margin: 0; }
+
+    /* CTA AKHIR */
+    .ebook-cta {
+      background: linear-gradient(135deg, rgba(245,166,35,0.08), rgba(245,166,35,0.03));
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 48px 40px;
+      text-align: center;
+      margin: 64px 0;
+    }
+    .ebook-cta h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 14px;
+    }
+    .ebook-cta p { color: var(--muted); max-width: 460px; margin: 0 auto 28px; font-size: 16px; }
+    .btn-cta-ebook {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--amber);
+      color: #000;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 16px 36px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-cta-ebook:hover { background: var(--amber2); }
+    .ebook-risk {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 16px;
+      line-height: 1.7;
+    }
+
+    /* FOOTER */
+    .ebook-footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 32px 24px;
+      text-align: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 600px) {
+      .ebook-cta { padding: 32px 24px; }
+      .chapter { padding: 48px 0 40px; }
+    }
+
+    @media print {
+      .ebook-nav, .btn-print, .ebook-cta { display: none; }
+      body { background: white; color: #111; }
+      .chapter h2, .cover h1 { color: #111; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- RISK BAR -->
+<div class="risk-bar">
+  ⚠ PERINGATAN RISIKO: Produk finansial mengandung risiko tinggi. Ebook ini hanya untuk tujuan edukasi, bukan saran investasi.
+</div>
+
+<!-- NAV -->
+<nav class="ebook-nav">
+  <div class="ebook-nav-logo">Trader<em>Lokal</em> · Ebook</div>
+  <button class="btn-print" onclick="window.print()">🖨 Print / Save PDF</button>
+</nav>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-badge">📘 Panduan Trading Pemula · 2025</div>
+  <h1>Panduan Lengkap<br/>Mulai Trading di<br/><em>IQ Option</em></h1>
+  <p class="cover-sub">Cara deposit, withdrawal, buka posisi, dan teknik trading sederhana — dari nol sampai siap trading nyata.</p>
+  <div class="cover-chapters">
+    <span class="cover-chapter">📥 Cara Deposit</span>
+    <span class="cover-chapter">📤 Cara Withdrawal</span>
+    <span class="cover-chapter">📊 Open Posisi</span>
+    <span class="cover-chapter">🎯 Teknik Simple</span>
+  </div>
+  <p class="cover-by">Dipersembahkan oleh <a href="https://traderlokal.com">TraderLokal.com</a> · Tidak Resmi · Hanya untuk Edukasi</p>
+</div>
+
+<div class="ebook-body">
+
+  <!-- ══════════════════════════════════ -->
+  <!-- BAB 1: CARA DEPOSIT               -->
+  <!-- ══════════════════════════════════ -->
+  <div class="chapter" id="bab1">
+    <div class="chapter-num">Bab 01 // Deposit</div>
+    <h2>Cara Deposit di IQ Option</h2>
+    <p class="chapter-intro">Deposit adalah langkah pertama sebelum trading nyata. IQ Option punya beberapa metode yang tersedia untuk trader Indonesia — pilih yang paling mudah buatmu.</p>
+
+    <div class="info-box tip">
+      <div class="info-label">💡 Tips Awal</div>
+      <p>Sebelum deposit uang nyata, pastikan kamu sudah berlatih minimal 2–4 minggu di <strong>akun demo gratis</strong>. Akun demo berisi $10.000 virtual dan tidak perlu deposit apapun.</p>
+    </div>
+
+    <h3>Metode Deposit yang Tersedia di Indonesia</h3>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metode</th>
+            <th>Minimum</th>
+            <th>Waktu Proses</th>
+            <th>Biaya</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Transfer Bank (BCA, Mandiri, BNI, BRI)</td>
+            <td class="green">$10</td>
+            <td>1–3 jam</td>
+            <td class="green">Gratis</td>
+          </tr>
+          <tr>
+            <td>Kartu Visa / Mastercard</td>
+            <td class="green">$10</td>
+            <td>Instan</td>
+            <td class="green">Gratis</td>
+          </tr>
+          <tr>
+            <td>Skrill</td>
+            <td class="green">$10</td>
+            <td>Instan</td>
+            <td class="green">Gratis</td>
+          </tr>
+          <tr>
+            <td>Neteller</td>
+            <td class="green">$10</td>
+            <td>Instan</td>
+            <td class="green">Gratis</td>
+          </tr>
+          <tr>
+            <td>Cryptocurrency (BTC, USDT)</td>
+            <td class="amber">$50</td>
+            <td>10–60 menit</td>
+            <td class="amber">Network fee</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Langkah-Langkah Deposit via Transfer Bank</h3>
+    <p>Ini metode yang paling umum dipakai trader Indonesia. Ikuti langkah berikut:</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num-circle">1</div>
+        <div class="step-content">
+          <h5>Login ke akun IQ Option</h5>
+          <p>Buka iqoption.com atau app mobile, masukkan email dan password. Pastikan akun sudah terverifikasi (upload KTP jika belum).</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-circle">2</div>
+        <div class="step-content">
+          <h5>Klik tombol "Deposit" (hijau) di pojok kanan atas</h5>
+          <p>Tombol ini ada di halaman utama platform, baik versi web maupun mobile.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-circle">3</div>
+        <div class="step-content">
+          <h5>Pilih metode "Transfer Bank Indonesia"</h5>
+          <p>Scroll ke bawah, pilih bank lokal kamu (BCA, Mandiri, BNI, BRI, atau CIMB). Pilih juga nominal deposit dalam USD.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-circle">4</div>
+        <div class="step-content">
+          <h5>Catat nomor rekening tujuan dan kode unik</h5>
+          <p>IQ Option akan tampilkan nomor rekening + kode unik (3 digit terakhir transfer). Kode ini WAJIB disertakan saat transfer, jangan sampai salah.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-circle">5</div>
+        <div class="step-content">
+          <h5>Lakukan transfer dari internet banking / ATM</h5>
+          <p>Transfer tepat sesuai nominal yang diminta termasuk kode unik. Contoh: jika diminta Rp 158.421 — transfer tepat segitu, jangan dibulatkan.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-circle">6</div>
+        <div class="step-content">
+          <h5>Upload bukti transfer (screenshot)</h5>
+          <p>Kembali ke platform IQ Option, upload foto/screenshot bukti transfer. Dana biasanya masuk dalam 1–3 jam kerja.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box warning">
+      <div class="info-label">⚠ Perhatian Penting</div>
+      <p>Jangan pernah transfer ke rekening pribadi atau pihak ketiga yang mengklaim sebagai "agen IQ Option". Deposit resmi hanya melalui platform IQ Option langsung. Jika ada yang meminta transfer ke rekening pribadi, itu PENIPUAN.</p>
+    </div>
+
+    <h3>Tips Deposit yang Aman</h3>
+    <div class="info-box success">
+      <div class="info-label">✅ Lakukan Ini</div>
+      <p>• Selalu simpan bukti transfer<br/>• Screenshot halaman konfirmasi deposit dari IQ Option<br/>• Mulai dari nominal kecil dulu ($10–$20) untuk memastikan proses berjalan<br/>• Gunakan email yang sama dengan yang didaftarkan di IQ Option</p>
+    </div>
+
+    <div class="callout">
+      <p>"Deposit pertama saya cuma $10. Bukan karena pelit, tapi untuk memastikan sistemnya berjalan sebelum deposit lebih besar."</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════ -->
+  <!-- BAB 2: CARA WITHDRAWAL            -->
+  <!-- ══════════════════════════════════ -->
+  <div class="chapter" id="bab2">
+    <div class="chapter-num">Bab 02 // Withdrawal</div>
+    <h2>Cara Withdrawal di IQ Option</h2>
+    <p class="chapter-intro">Withdrawal (penarikan dana) adalah bagian yang paling penting dan paling sering bermasalah kalau tidak dilakukan dengan benar. Ini panduannya.</p>
+
+    <div class="info-box warning">
+      <div class="info-label">⚠ Aturan Penting Withdrawal</div>
+      <p>IQ Option menerapkan aturan: <strong>dana harus ditarik melalui metode yang sama dengan metode deposit</strong>. Jika deposit via kartu kredit, maka withdrawal pertama harus kembali ke kartu yang sama — sebesar jumlah yang didepositkan.</p>
+    </div>
+
+    <h3>Langkah-Langkah Withdrawal</h3>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num-circle">1</div>
+        <div class="step-content">
+          <h5>Pastikan akun sudah terverifikasi penuh</h5>
+          <p>Ini syarat utama. Upload KTP/SIM + foto selfie holding ID + bukti alamat (tagihan listrik/air/rekening koran). Proses verifikasi 1–3 hari kerja.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-circle">2</div>
+        <div class="step-content">
+          <h5>Klik menu "Withdraw" di platform</h5>
+          <p>Di versi web: klik foto profil → Withdraw Funds. Di mobile: menu → Cashier → Withdrawal.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-circle">3</div>
+        <div class="step-content">
+          <h5>Pilih metode withdrawal</h5>
+          <p>Pilih metode yang sama dengan deposit kamu. Masukkan nominal yang ingin ditarik (minimum $2).</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-circle">4</div>
+        <div class="step-content">
+          <h5>Konfirmasi via email</h5>
+          <p>IQ Option akan kirim email konfirmasi. Klik link di email dalam waktu 24 jam untuk mengkonfirmasi penarikan.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-circle">5</div>
+        <div class="step-content">
+          <h5>Tunggu proses</h5>
+          <p>E-wallet (Skrill/Neteller): 1–24 jam. Transfer bank: 1–5 hari kerja. Kartu kredit: 3–10 hari kerja.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3>Estimasi Waktu Withdrawal</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metode</th>
+            <th>Estimasi Waktu</th>
+            <th>Biaya WD</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Skrill / Neteller</td>
+            <td class="green">1–24 jam</td>
+            <td class="green">Gratis (pertama per bulan)</td>
+          </tr>
+          <tr>
+            <td>Transfer Bank Lokal</td>
+            <td class="amber">1–5 hari kerja</td>
+            <td class="green">Gratis</td>
+          </tr>
+          <tr>
+            <td>Kartu Kredit/Debit</td>
+            <td class="amber">3–10 hari kerja</td>
+            <td class="green">Gratis</td>
+          </tr>
+          <tr>
+            <td>Cryptocurrency</td>
+            <td class="amber">10–60 menit</td>
+            <td class="red">Network fee</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Kenapa Withdrawal Bisa Ditolak?</h3>
+    <p>Ini masalah paling umum yang dihadapi trader. Penyebabnya:</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num-circle">!</div>
+        <div class="step-content">
+          <h5>Akun belum terverifikasi</h5>
+          <p>Upload semua dokumen yang diminta sejak awal. Jangan tunggu saat mau withdraw baru upload.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-circle">!</div>
+        <div class="step-content">
+          <h5>Metode withdrawal berbeda dengan deposit</h5>
+          <p>Jika deposit via kartu, withdraw pertama harus ke kartu yang sama. Baru setelah itu bisa ke metode lain.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-circle">!</div>
+        <div class="step-content">
+          <h5>Mencurigai aktivitas trading</h5>
+          <p>Trading dengan volume tidak wajar atau pola yang mencurigakan bisa memicu review manual oleh tim IQ Option.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-circle">!</div>
+        <div class="step-content">
+          <h5>Lupa konfirmasi email</h5>
+          <p>Setiap withdrawal request dikirimkan link konfirmasi ke email. Kalau tidak diklik dalam 24 jam, request otomatis dibatalkan.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box success">
+      <div class="info-label">✅ Tips Agar Withdrawal Lancar</div>
+      <p>• Verifikasi akun SEBELUM mulai deposit<br/>• Gunakan Skrill atau Neteller untuk withdrawal tercepat<br/>• Selalu cek email setelah request withdrawal<br/>• Jangan trading dengan pola yang terlihat mencurigakan (scalping ekstrem, dll)<br/>• Simpan semua bukti deposit sebagai referensi</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════ -->
+  <!-- BAB 3: CARA OPEN POSISI           -->
+  <!-- ══════════════════════════════════ -->
+  <div class="chapter" id="bab3">
+    <div class="chapter-num">Bab 03 // Open Posisi</div>
+    <h2>Cara Membuka Posisi Trading</h2>
+    <p class="chapter-intro">Ini inti dari trading — bagaimana cara buka posisi dengan benar. Kita bahas untuk dua jenis trading yang tersedia di IQ Option: Digital Options dan Forex CFD.</p>
+
+    <h3>Jenis Trading di IQ Option</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Jenis</th>
+            <th>Cara Kerja</th>
+            <th>Risiko</th>
+            <th>Cocok untuk</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Digital Options</strong></td>
+            <td>Prediksi naik/turun dalam waktu tertentu</td>
+            <td class="red">Sangat Tinggi</td>
+            <td>Pemula yang mau belajar</td>
+          </tr>
+          <tr>
+            <td><strong>Forex CFD</strong></td>
+            <td>Trading pasangan mata uang dengan leverage</td>
+            <td class="red">Tinggi</td>
+            <td>Yang sudah punya dasar analisa</td>
+          </tr>
+          <tr>
+            <td><strong>Stock CFD</strong></td>
+            <td>Trading saham global (Apple, Tesla, dll)</td>
+            <td class="amber">Menengah-Tinggi</td>
+            <td>Yang familiar dengan saham</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Cara Open Posisi: Digital Options</h3>
+    <p>Digital options adalah produk paling populer di IQ Option untuk pemula. Cara kerjanya: kamu prediksi apakah harga akan naik (CALL) atau turun (PUT) dalam waktu yang kamu tentukan.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num-circle">1</div>
+        <div class="step-content">
+          <h5>Pilih aset yang ingin diperdagangkan</h5>
+          <p>Klik dropdown aset di bagian atas chart. Untuk pemula, mulai dengan EUR/USD atau pasangan mata uang mayor yang likuid dan sprenya kecil.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-circle">2</div>
+        <div class="step-content">
+          <h5>Pilih jenis opsi: Digital atau Binary</h5>
+          <p>Digital Options memberikan kontrol lebih baik soal waktu kadaluarsa. Pilih di menu kiri platform.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-circle">3</div>
+        <div class="step-content">
+          <h5>Tentukan waktu kadaluarsa (expiry)</h5>
+          <p>Ini berapa lama trade kamu berjalan. Pilihan mulai dari 1 menit sampai beberapa jam. Pemula disarankan mulai dari 5–15 menit untuk punya waktu analisa.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-circle">4</div>
+        <div class="step-content">
+          <h5>Tentukan nominal trade</h5>
+          <p>Mulai dari $1 atau $2. Jangan langsung besar meski akun kamu besar. Prinsip money management: maksimal 2–5% dari total saldo per trade.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-circle">5</div>
+        <div class="step-content">
+          <h5>Klik CALL (↑) atau PUT (↓)</h5>
+          <p>CALL = kamu prediksi harga akan NAIK saat expiry. PUT = kamu prediksi harga akan TURUN saat expiry. Klik sesuai analisa kamu.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-circle">6</div>
+        <div class="step-content">
+          <h5>Tunggu hingga expiry</h5>
+          <p>Setelah posisi terbuka, kamu tidak bisa membatalkan (kecuali ada fitur sell-back). Tunggu hingga waktu habis dan lihat hasilnya.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box amber">
+      <div class="info-label">📊 Cara Membaca Payout</div>
+      <p>Jika payout 80% dan kamu trade $10:<br/>• Menang → dapat $8 profit (total $18 dikembalikan)<br/>• Kalah → kehilangan $10 (seluruh modal trade)<br/><br/>Artinya: untuk breakeven, win rate kamu harus di atas ~56%.</p>
+    </div>
+
+    <h3>Cara Open Posisi: Forex CFD</h3>
+    <p>Forex CFD berbeda dengan options — kamu tidak prediksi naik/turun dalam waktu tertentu, tapi kamu beli/jual pasangan mata uang dan profit/loss dihitung dari pergerakan harga.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num-circle">1</div>
+        <div class="step-content">
+          <h5>Pilih pasangan mata uang</h5>
+          <p>EUR/USD, GBP/USD, USD/JPY adalah yang paling likuid dan spread-nya kecil. Cocok untuk pemula.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-circle">2</div>
+        <div class="step-content">
+          <h5>Pilih ukuran lot (volume)</h5>
+          <p>Mulai dari 0.01 lot (micro lot) untuk meminimalkan risiko. Semakin besar lot, semakin besar profit AND loss per pip.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-circle">3</div>
+        <div class="step-content">
+          <h5>Set Stop Loss (SL) dan Take Profit (TP)</h5>
+          <p>INI WAJIB. Stop Loss membatasi kerugian maksimal kamu. Take Profit mengunci keuntungan secara otomatis. Jangan pernah trade tanpa SL.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-circle">4</div>
+        <div class="step-content">
+          <h5>Klik BUY atau SELL</h5>
+          <p>BUY = kamu ekspektasi harga naik. SELL = kamu ekspektasi harga turun. Posisi langsung terbuka pada harga pasar saat ini.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-circle">5</div>
+        <div class="step-content">
+          <h5>Monitor dan kelola posisi</h5>
+          <p>Kamu bisa tutup posisi kapanpun (tidak harus tunggu SL/TP). Pantau posisi di tab "Open Trades" di bawah chart.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box warning">
+      <div class="info-label">⚠ Bahaya Leverage</div>
+      <p>Forex CFD menggunakan leverage, artinya kamu bisa kontrol posisi besar dengan modal kecil. Ini pisau bermata dua — profit bisa besar, tapi loss juga bisa melebihi modal. Selalu gunakan leverage rendah (1:10 atau 1:20) saat baru mulai.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════ -->
+  <!-- BAB 4: TEKNIK SIMPLE              -->
+  <!-- ══════════════════════════════════ -->
+  <div class="chapter" id="bab4">
+    <div class="chapter-num">Bab 04 // Teknik Trading</div>
+    <h2>Teknik Trading Sederhana untuk Pemula</h2>
+    <p class="chapter-intro">Tidak perlu teknik yang rumit untuk mulai. Dua teknik ini sudah cukup untuk pemula — yang penting konsisten dan disiplin dalam eksekusinya.</p>
+
+    <div class="info-box tip">
+      <div class="info-label">💡 Prinsip Dasar</div>
+      <p>Teknik trading yang bagus bukan yang paling rumit, tapi yang paling bisa kamu pahami dan eksekusi dengan konsisten. Lebih baik kuasai 1 teknik dengan baik daripada tahu 10 teknik tapi tidak ada yang dikuasai.</p>
+    </div>
+
+    <!-- TEKNIK 1 -->
+    <h3>🎯 Teknik 1: Support & Resistance</h3>
+    <p>Ini adalah teknik paling fundamental dalam analisa teknikal. Support adalah level harga di mana harga cenderung berhenti turun dan memantul naik. Resistance adalah level di mana harga cenderung berhenti naik dan berbalik turun.</p>
+
+    <div class="chart-visual">
+      <div class="chart-title">// ILUSTRASI SUPPORT & RESISTANCE</div>
+      <div style="position:relative;padding:20px 0">
+        <div class="sr-line">━━━━━━━━━━━━━━━━━━━━━━━ RESISTANCE (harga sering balik turun di sini)</div>
+        <div style="height:40px;display:flex;align-items:center;gap:4px;padding:8px 0">
+          <div style="width:12px;height:28px;background:var(--green);border-radius:2px"></div>
+          <div style="width:12px;height:36px;background:var(--green);border-radius:2px"></div>
+          <div style="width:12px;height:32px;background:var(--red);border-radius:2px"></div>
+          <div style="width:12px;height:20px;background:var(--red);border-radius:2px"></div>
+          <div style="width:12px;height:30px;background:var(--green);border-radius:2px"></div>
+          <div style="width:12px;height:38px;background:var(--green);border-radius:2px"></div>
+          <div style="width:12px;height:18px;background:var(--red);border-radius:2px"></div>
+          <div style="color:var(--amber);font-size:12px;margin-left:8px">← Zona Trading</div>
+        </div>
+        <div class="sr-line">━━━━━━━━━━━━━━━━━━━━━━━ SUPPORT (harga sering memantul naik di sini)</div>
+      </div>
+    </div>
+
+    <h4>Cara Menggunakan Support & Resistance</h4>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num-circle">1</div>
+        <div class="step-content">
+          <h5>Identifikasi level Support dan Resistance</h5>
+          <p>Lihat chart timeframe H1 atau H4. Cari area di mana harga pernah berbalik arah minimal 2–3 kali. Tarik garis horizontal di area tersebut.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-circle">2</div>
+        <div class="step-content">
+          <h5>Tunggu harga mendekati level tersebut</h5>
+          <p>Jangan entry terburu-buru. Tunggu harga benar-benar menyentuh atau mendekati level S/R yang sudah kamu tandai.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-circle">3</div>
+        <div class="step-content">
+          <h5>Konfirmasi dengan candlestick</h5>
+          <p>Cari pola candlestick konfirmasi di level S/R: Hammer atau Doji di Support (sinyal CALL/BUY), Shooting Star atau Doji di Resistance (sinyal PUT/SELL).</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-circle">4</div>
+        <div class="step-content">
+          <h5>Entry dan pasang SL/TP</h5>
+          <p>Entry setelah candlestick konfirmasi terbentuk. SL: beberapa pip di bawah Support (untuk BUY) atau di atas Resistance (untuk SELL). TP: minimal 1.5x dari SL (risk:reward 1:1.5).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box success">
+      <div class="info-label">✅ Kapan Entry yang Bagus</div>
+      <p>• Harga menyentuh Support → tunggu candle bullish (hijau) → CALL/BUY<br/>• Harga menyentuh Resistance → tunggu candle bearish (merah) → PUT/SELL<br/>• Volume meningkat saat di level S/R = sinyal lebih kuat<br/>• Hindari entry saat rilis berita ekonomi besar (NFP, Fed Rate, dll)</p>
+    </div>
+
+    <!-- TEKNIK 2 -->
+    <h3>📈 Teknik 2: Trend Following dengan EMA</h3>
+    <p>Trend following adalah prinsip "jangan lawan tren". Teknik ini menggunakan dua Exponential Moving Average (EMA) untuk menentukan arah tren dan timing entry yang lebih akurat.</p>
+
+    <h4>Setting EMA yang Digunakan</h4>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Indikator</th>
+            <th>Setting</th>
+            <th>Fungsi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>EMA Cepat</td>
+            <td class="amber">EMA 8</td>
+            <td>Menunjukkan pergerakan jangka pendek</td>
+          </tr>
+          <tr>
+            <td>EMA Lambat</td>
+            <td class="amber">EMA 21</td>
+            <td>Menunjukkan arah tren utama</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>Cara Membaca Sinyal EMA</h4>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num-circle">▲</div>
+        <div class="step-content">
+          <h5>Sinyal BUY/CALL (Tren Naik)</h5>
+          <p>EMA 8 memotong ke ATAS EMA 21 (golden cross) → ini sinyal tren sedang berubah ke arah naik. Cari entry BUY saat harga pullback menyentuh EMA 21, lalu memantul kembali naik.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num-circle">▼</div>
+        <div class="step-content">
+          <h5>Sinyal SELL/PUT (Tren Turun)</h5>
+          <p>EMA 8 memotong ke BAWAH EMA 21 (death cross) → ini sinyal tren sedang berubah ke arah turun. Cari entry SELL saat harga pullback menyentuh EMA 21, lalu melanjutkan turun.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box tip">
+      <div class="info-label">💡 Cara Pasang EMA di Platform IQ Option</div>
+      <p>1. Klik ikon "Indikator" (fx) di toolbar chart<br/>2. Cari "Moving Average" atau "EMA"<br/>3. Set periode 8, pilih warna biru terang<br/>4. Tambah lagi EMA periode 21, pilih warna oranye<br/>5. Apply — kedua EMA sekarang muncul di chart</p>
+    </div>
+
+    <!-- MONEY MANAGEMENT -->
+    <h3>💰 Money Management — Aturan Wajib</h3>
+    <p>Teknik trading terbaik pun tidak berguna kalau money management-nya buruk. Ini aturan yang harus kamu ikuti:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Aturan</th>
+            <th>Penjelasan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Maksimal 2–5% per trade</strong></td>
+            <td>Jika saldo $100, maksimal per trade = $2–5. Ini melindungi dari drawdown besar.</td>
+          </tr>
+          <tr>
+            <td><strong>Risk:Reward minimal 1:1.5</strong></td>
+            <td>Jika SL = 10 pip, maka TP minimal 15 pip. Ini memastikan kamu tetap profit meski win rate 50%.</td>
+          </tr>
+          <tr>
+            <td><strong>Maksimal 3–5 trade per hari</strong></td>
+            <td>Trading terlalu banyak = overtrade = emosi terlibat = loss lebih banyak.</td>
+          </tr>
+          <tr>
+            <td><strong>Stop loss harian</strong></td>
+            <td>Tentukan batas loss harian (misal: -10% dari saldo). Jika sudah kena, STOP trading hari itu.</td>
+          </tr>
+          <tr>
+            <td><strong>Catat semua trade</strong></td>
+            <td>Buat jurnal trading: tanggal, aset, entry, exit, profit/loss, alasan entry. Ini untuk evaluasi.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <p>"Trading bukan tentang menang setiap trade. Trading adalah tentang mengelola risiko sehingga saat kamu menang, keuntungannya lebih besar dari kerugian saat kalah."</p>
+    </div>
+
+    <h3>🚫 Kesalahan Umum yang Harus Dihindari</h3>
+    <div class="info-box warning">
+      <div class="info-label">⚠ Jangan Lakukan Ini</div>
+      <p>
+        ❌ <strong>Revenge trading</strong> — menggandakan trade setelah loss untuk "balas dendam"<br/>
+        ❌ <strong>Overtrade</strong> — buka terlalu banyak posisi sekaligus<br/>
+        ❌ <strong>FOMO</strong> — masuk trade karena takut ketinggalan pergerakan<br/>
+        ❌ <strong>Trading tanpa analisa</strong> — hanya mengandalkan perasaan atau "feeling"<br/>
+        ❌ <strong>Abaikan SL</strong> — tidak pasang stop loss karena "yakin" harga akan berbalik<br/>
+        ❌ <strong>Percaya sinyal berbayar</strong> — grup Telegram yang jual sinyal trading hampir selalu scam
+      </p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════ -->
+  <!-- PENUTUP                           -->
+  <!-- ══════════════════════════════════ -->
+  <div class="chapter" id="penutup">
+    <div class="chapter-num">Penutup</div>
+    <h2>Ringkasan & Langkah Selanjutnya</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Bab</th>
+            <th>Poin Kunci</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>📥 Deposit</td>
+            <td>Gunakan bank transfer lokal, simpan bukti, mulai nominal kecil</td>
+          </tr>
+          <tr>
+            <td>📤 Withdrawal</td>
+            <td>Verifikasi akun duluan, gunakan metode sama dengan deposit, konfirmasi email</td>
+          </tr>
+          <tr>
+            <td>📊 Open Posisi</td>
+            <td>Selalu pasang SL/TP, mulai lot kecil, pahami perbedaan options vs forex</td>
+          </tr>
+          <tr>
+            <td>🎯 Teknik</td>
+            <td>Support/Resistance + EMA 8/21, money management ketat, catat jurnal</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-box success">
+      <div class="info-label">✅ Langkah Berikutnya yang Disarankan</div>
+      <p>
+        1️⃣ Buka akun demo gratis dan praktikkan semua yang ada di ebook ini<br/>
+        2️⃣ Catat hasil demo trading kamu selama 4 minggu<br/>
+        3️⃣ Jika win rate demo sudah konsisten di atas 55%, baru pertimbangkan akun real<br/>
+        4️⃣ Deposit nominal kecil dulu ($10–$20) untuk tes proses deposit/withdrawal<br/>
+        5️⃣ Jangan pernah berhenti belajar — pasar selalu berubah
+      </p>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="ebook-cta">
+    <h2>Siap Mulai Praktik?</h2>
+    <p>Semua teori di atas tidak berguna tanpa praktek. Mulai dari akun demo gratis — tidak perlu deposit apapun.</p>
+    <a href="https://affiliate.iqoption.net/redir/?aff=300981&aff_model=revenue&afftrack=" target="_blank" rel="nofollow noopener" class="btn-cta-ebook">
+      Buka Akun Demo Gratis →
+    </a>
+    <p class="ebook-risk">
+      ⚠ Peringatan Risiko: Produk finansial yang ditawarkan oleh perusahaan ini mengandung risiko<br/>
+      tinggi dan dapat menyebabkan hilangnya seluruh dana Anda.<br/>
+      Jangan menginvestasikan uang jika Anda tidak sanggup kehilangan uang tersebut.<br/>
+      Ebook ini hanya untuk tujuan informasi dan bukan saran investasi.
+    </p>
+  </div>
+
+</div>
+
+<div class="ebook-footer">
+  © 2025 TraderLokal.com · Situs tidak resmi · Bukan bagian dari atau didukung oleh IQ Option<br/>
+  Seluruh konten hanya untuk tujuan edukasi
+</div>
+
+</body>
+</html>

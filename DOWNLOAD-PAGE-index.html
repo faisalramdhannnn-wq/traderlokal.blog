@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Klaim Ebook Kamu — TraderLokal.com</title>
+  <meta name="robots" content="noindex, nofollow"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@400;500&family=Lora:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #0c0f14;
+      --amber: #f5a623;
+      --amber2: #e8921a;
+      --green: #2ecc71;
+      --text: #e8e6e0;
+      --muted: #7a7f8e;
+      --border: rgba(245,166,35,0.15);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Lora', serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      text-align: center;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse at center top, rgba(245,166,35,0.06), transparent 60%);
+      pointer-events: none;
+    }
+    .box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 56px 48px;
+      max-width: 540px;
+      width: 100%;
+      position: relative;
+    }
+    .icon { font-size: 56px; margin-bottom: 24px; animation: bounce 2s infinite; }
+    @keyframes bounce {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(24px, 5vw, 36px);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 14px;
+    }
+    h1 em { color: var(--amber); font-style: normal; }
+    p {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--amber);
+      color: #000;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 18px 40px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      margin-bottom: 16px;
+      width: 100%;
+      justify-content: center;
+    }
+    .btn-download:hover { background: var(--amber2); transform: translateY(-2px); }
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      text-decoration: none;
+      margin-top: 8px;
+      transition: color 0.2s;
+    }
+    .btn-back:hover { color: var(--amber); }
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin: 32px 0;
+    }
+    .toc {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+    .toc-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--text);
+    }
+    .toc-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--amber);
+      background: rgba(245,166,35,0.1);
+      border-radius: 99px;
+      padding: 3px 10px;
+      white-space: nowrap;
+    }
+    .risk {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-top: 24px;
+    }
+    @media (max-width: 480px) {
+      .box { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="icon">🎉</div>
+    <h1>Ebook kamu<br/>sudah siap, <em>gratis!</em></h1>
+    <p>Terima kasih sudah bergabung via link kami. Klik tombol di bawah untuk membaca ebook panduan trading lengkapmu.</p>
+
+    <div class="toc">
+      <div class="toc-item"><span class="toc-num">Bab 1</span> Cara Deposit di IQ Option</div>
+      <div class="toc-item"><span class="toc-num">Bab 2</span> Cara Withdrawal yang Benar</div>
+      <div class="toc-item"><span class="toc-num">Bab 3</span> Cara Membuka Posisi Trading</div>
+      <div class="toc-item"><span class="toc-num">Bab 4</span> Teknik Trading Sederhana</div>
+    </div>
+
+    <a href="ebook.html" class="btn-download" target="_blank">
+      📘 Baca Ebook Sekarang →
+    </a>
+    <br/>
+    <a href="../index.html" class="btn-back">← Kembali ke TraderLokal.com</a>
+
+    <hr class="divider"/>
+
+    <p class="risk">
+      ⚠ Peringatan Risiko: Produk finansial mengandung risiko tinggi dan dapat menyebabkan hilangnya seluruh dana Anda. Ebook ini hanya untuk tujuan edukasi, bukan saran investasi pribadi.
+    </p>
+  </div>
+</body>
+</html>
