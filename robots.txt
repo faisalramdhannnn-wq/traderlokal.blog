@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /bonus-trader-lokal-2025/
+
+Sitemap: https://traderlokal.blog/sitemap.xml
